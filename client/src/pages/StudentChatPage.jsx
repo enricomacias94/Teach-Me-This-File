@@ -254,6 +254,35 @@ function StudentChatPage() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, lessonComplete, showContinueButton]);
 
+  // If the laptop sleeps or the tab is backgrounded mid-stream, fetch can hang
+  // and leave Send locked. On wake, abort the stuck request so the UI unlocks.
+  const wasHiddenWhileStreamingRef = useRef(false);
+  useEffect(() => {
+    function handleVisibilityChange() {
+      if (document.visibilityState === "hidden" && abortControllerRef.current) {
+        wasHiddenWhileStreamingRef.current = true;
+        return;
+      }
+
+      if (
+        document.visibilityState === "visible" &&
+        wasHiddenWhileStreamingRef.current &&
+        abortControllerRef.current
+      ) {
+        wasHiddenWhileStreamingRef.current = false;
+        abortControllerRef.current.abort();
+        setErrorMessage(
+          "Interrupted while the screen or tab was asleep. You can send again or use Continue."
+        );
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
   async function handleSend(event) {
     event.preventDefault();
     const text = draft.trim();
