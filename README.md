@@ -131,9 +131,9 @@ Optional env on the server: `OPENAI_MODEL` (default `gpt-4o-mini`), `PORT` (defa
 
 See `server/test-fixtures/`:
 
-- `sample-text.pdf` — simple 2-page sample
-- `advanced-fractions.pdf` — multi-step math (fractions)
-- `advanced-photosynthesis.pdf` — multi-step science reading
+- `sample-text.pdf` — simple 2-page sample (quick smoke tests)
+- `Math_Fractions_Extended.pdf` — extended fractions lesson
+- `History_Industrial_Revolution.pdf` — industrial revolution reading lesson
 
 Use these to defend / demo the full student flow.
 

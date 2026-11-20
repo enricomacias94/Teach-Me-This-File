@@ -286,12 +286,8 @@ async function collectUsedExcerptIdsAfterOpen({
     signal,
   });
 
-  const validated = validateUsedExcerptIds(
-    result.usedExcerptIds,
-    limitedExcerpts
-  );
-  // Fallback: if the model returns nothing, still enable View source on open turns.
-  return validated.length > 0 ? validated : allowedIdList.slice(0, 1);
+  // No fallback to "first excerpt" — empty means hide View source for this reply.
+  return validateUsedExcerptIds(result.usedExcerptIds, limitedExcerpts);
 }
 
 /**
@@ -417,12 +413,10 @@ export async function streamTutorTurn({
     onDelta,
   });
 
+  // If OpenAI gave no valid IDs, return [] so the client hides View source.
   onDone({
     advance: evaluation.advance,
     model: modelLabel,
-    usedExcerptIds:
-      evaluation.usedExcerptIds.length > 0
-        ? evaluation.usedExcerptIds
-        : limitedExcerpts.slice(0, 1).map((excerpt) => excerpt.id),
+    usedExcerptIds: evaluation.usedExcerptIds,
   });
 }
