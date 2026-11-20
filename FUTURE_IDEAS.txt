@@ -1,0 +1,73 @@
+Teach Me This File — future ideas (unlimited resources)
+=======================================================
+
+Ideas below are NOT in the app yet. They are notes for later if
+we have time and budget. Current product still works without them.
+
+
+1) Drag and drop PDF
+--------------------
+What:
+  Let the teacher drop a PDF onto the prepare screen instead of
+  (or in addition to) clicking "choose file".
+
+Why:
+  Faster and more natural when preparing many lessons.
+
+Notes:
+  Same limits as today (PDF, max size). Only UX change; APIs stay
+  the same.
+
+
+2) Read handwritten / scanned PDFs
+----------------------------------
+What:
+  Support PDFs that are photos or scans of handwriting, not typed
+  digital text.
+
+Why:
+  Many school worksheets and student notes are handwritten.
+
+How (high level):
+  - OCR and/or a vision model to turn page images into text
+  - Keep the current text path for normal digital PDFs
+  - Show confidence / warn when handwriting is unclear
+
+Notes:
+  This changes requirements: more cost, latency, and possible
+  mistakes on math symbols. Needs a clear product decision.
+
+
+3) Save session results + grading / progress tracking
+-----------------------------------------------------
+What:
+  Store each student lesson session after it ends:
+  - which PDF / course
+  - steps completed
+  - answers given
+  - tutor judgments (advance / hints)
+  - a simple grade or score per step and per session
+
+Why:
+  Teachers (and students) can see evolution over time:
+  stronger topics, repeated mistakes, improvement across sessions.
+
+Ideas for grading:
+  - per step: pass / fail or 0–100 based on attempts and hints
+  - per session: average or weighted score
+  - history chart: scores across dates for the same subject/PDF
+
+Notes:
+  Needs persistence (database or accounts). Today everything is
+  in-memory and is lost on refresh. Saving sessions is a bigger
+  product step (accounts, privacy, storage).
+
+
+Priority suggestion (if we build later)
+---------------------------------------
+  A. Drag and drop — small, safe
+  B. Save sessions + simple grading — high teaching value
+  C. Handwritten PDF reading — powerful but heavier
+
+
+Last updated: 2026-11-20
