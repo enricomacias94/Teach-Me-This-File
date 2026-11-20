@@ -1,8 +1,14 @@
 # Teach Me This File
 
+**Live / project URL:** https://github.com/enricomacias94/Teach-Me-This-File  
+
+(No separate hosted demo — clone the repo and run locally with `npm run install:all` then `npm run dev`, then open http://localhost:5173/)
+
 Turn a **PDF** into a short, step-by-step lesson. A **teacher** prepares the course; a **student** practices with a streaming AI tutor.
 
 The OpenAI API key stays in the browser memory only for the session. It is sent to the server in a request header and is **never stored** on disk or in the repo.
+
+For architecture choices, limitations, and test results, see **[DECISIONS.md](./DECISIONS.md)**.
 
 ---
 
