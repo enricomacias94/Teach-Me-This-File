@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+client/dist/
+
+# Environment variables (secrets stay local)
+.env
+.env.local
+server/.env
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

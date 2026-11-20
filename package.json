@@ -1,0 +1,15 @@
+{
+  "name": "teach-me-this-file",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Teach Me This File — prepare a course from a file, then chat with a student AI tutor.",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
