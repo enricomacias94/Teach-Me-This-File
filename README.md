@@ -1,8 +1,10 @@
 # Teach Me This File
 
-**Live / project URL:** https://github.com/enricomacias94/Teach-Me-This-File  
+**Live demo:** https://teach-me-this-file-x8yu.onrender.com/
 
-(No separate hosted demo — clone the repo and run locally with `npm run install:all` then `npm run dev`, then open http://localhost:5173/)
+The free Render service may take about a minute to wake up. To start a lesson, enter your own OpenAI API key in Settings and upload a text-based PDF.
+
+**Repository:** https://github.com/enricomacias94/Teach-Me-This-File
 
 Turn a **PDF** into a short, step-by-step lesson. A **teacher** prepares the course; a **student** practices with a streaming AI tutor.
 
